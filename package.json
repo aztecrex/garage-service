@@ -1,0 +1,17 @@
+{
+  "name": "garage-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.597.0"
+  },
+  "devDependencies": {
+    "lambundaler": "^0.11.1"
+  }
+}
