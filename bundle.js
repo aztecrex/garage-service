@@ -6,7 +6,8 @@ const presentationCfg = {
     entry: 'status.js',
     export: 'handler',
     output: 'lambda-build/status.zip',
-    exclude: ['aws-sdk']
+    minify: true,
+    exclude: ['aws-sdk', 'aws-sdk/clients/iotdata', 'aws-iot-device-sdk']
 };
 
 const b = (cfg) => {
