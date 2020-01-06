@@ -5,6 +5,7 @@ const R = require('ramda');
 // i know, they're hardcoded, it's a demo
 const THING_NAME = 'iot-codecraft-thing-Garage-Device-GSBODF67Q7W0';
 const ENDPOINT = 'ad78o9k6p57sk-ats.iot.us-east-1.amazonaws.com';
+const OP_TOPIC = 'control/' + THING_NAME + '/operate';
 
 const Data = new IoTData({
     region: 'us-east-1',
@@ -45,12 +46,23 @@ const updateDesired = v => {
     });
 };
 
+const issueOperate = v => {
+    return new Promise((resolve, reject) => {
+        Data.publish({
+            topic: OP_TOPIC,
+        }, (err, data) => {
+            if (err) reject(err);
+            else resolve({});
+        });
+    });
+};
 
 exports.handler = async (event, context) => {
     const desiredBefore = await fetchDesired();
     const wanted = desiredBefore.position || 'UNKNOWN';
     const want = wanted === 'UP' ? 'DOWN' : 'UP';
     const desired = { position: want };
+    await issueOperate();
     await updateDesired(desired);
     return {
         statusCode: 200,
