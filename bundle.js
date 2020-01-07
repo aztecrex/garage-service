@@ -32,6 +32,8 @@ const b = (cfg) => {
 }
 b(config('status'));
 b(config('operate'));
+b(config('up'));
+b(config('down'));
 
 // bundle(statusConfig, (err, buffer, artifacts) => {
 //         if (err) {
