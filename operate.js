@@ -58,7 +58,7 @@ const issueOperate = v => {
 };
 
 exports.handler = async (event, context) => {
-    const desired = { position: "UNKNOWN" };
+    const desired = { position: "FREE" };
     await updateDesired(desired);
     await issueOperate();
     return {
