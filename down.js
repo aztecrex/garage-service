@@ -27,7 +27,6 @@ const updateDesired = v => {
 
 
 exports.handler = async (event, context) => {
-    const desiredBefore = await fetchDesired();
     const desired = { position: "DOWN" };
     await updateDesired(desired);
     return {
