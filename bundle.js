@@ -34,6 +34,7 @@ b(config('status'));
 b(config('operate'));
 b(config('up'));
 b(config('down'));
+b(config('switch'));
 
 // bundle(statusConfig, (err, buffer, artifacts) => {
 //         if (err) {
